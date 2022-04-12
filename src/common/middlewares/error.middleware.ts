@@ -21,8 +21,10 @@ export const errorHandler = (
   _next: NextFunction,
 ): void => {
   if (err instanceof AdvancedError) {
-    res.send(err);
+    res.send(err).status(err.statusCode);
+    return;
   }
+
   const error = new AdvancedError({
     message: 'Internal server error',
     type: EError.INTERNAL_ERROR,
