@@ -1,0 +1,51 @@
+{
+  "name": "express-oop-base",
+  "version": "1.0.0",
+  "main": "dist/src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "clean": "rimraf dist/*",
+    "lint": "eslint --ext .ts --fix src/",
+    "tsc": "tsc",
+    "copy-assets": "ts-node-dev tools/copyAssets",
+    "build": "concurrently \"yarn:clean\" \"yarn:lint\" \"yarn:tsc\" \"yarn:copy-assets\"",
+    "build:dev": "concurrently \"yarn:clean\" \"yarn:tsc\" \"yarn:copy-assets\"",
+    "start": "node .",
+    "start:prod": "yarn build && yarn start",
+    "start:dev": "yarn build:dev && yarn start",
+    "dev": "nodemon",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.17.3",
+    "express-validator": "^6.14.0",
+    "helmet": "^5.0.2",
+    "module-alias": "^2.2.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.12",
+    "@types/express": "^4.17.13",
+    "@types/morgan": "^1.9.3",
+    "@types/node": "^17.0.23",
+    "@types/rimraf": "^3.0.2",
+    "@types/shelljs": "^0.8.11",
+    "@typescript-eslint/eslint-plugin": "^5.19.0",
+    "@typescript-eslint/parser": "^5.19.0",
+    "concurrently": "^7.1.0",
+    "dotenv": "^16.0.0",
+    "eslint": "^8.13.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-import-resolver-typescript": "^2.7.1",
+    "eslint-plugin-import": "^2.26.0",
+    "nodemon": "^2.0.15",
+    "rimraf": "^3.0.2",
+    "shelljs": "^0.8.5",
+    "ts-node-dev": "^1.1.8",
+    "typescript": "^4.6.3"
+  },
+  "_moduleAliases": {
+    "@app": "dist/src"
+  }
+}

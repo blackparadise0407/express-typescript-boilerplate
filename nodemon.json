@@ -1,0 +1,10 @@
+{
+  "watch": ["src"],
+  "ext": "ts,json",
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "ignore": ["src/**/*.spec.ts"],
+  "exec": "yarn start:dev",
+  "restartable": "rs"
+}
