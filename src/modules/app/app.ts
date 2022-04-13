@@ -29,8 +29,9 @@ export default class App {
   }
 
   public loadControllers(controllers: Array<BaseController>): void {
+    const globalPrefix = '/api';
     controllers.forEach((x) => {
-      this.server.use(x.path, x.getRoutes());
+      this.server.use(globalPrefix + x.path, x.getRoutes());
     });
   }
 
