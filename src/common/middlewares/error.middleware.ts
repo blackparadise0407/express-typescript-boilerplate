@@ -27,7 +27,8 @@ export const errorHandler = (
   }
 
   const error = new AdvancedError({
-    message: 'Internal server error',
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    message: (err as any)?.message || 'Internal server error',
     type: EError.INTERNAL_ERROR,
   });
   error.setStatusCode(500);
