@@ -80,7 +80,8 @@
     "@typescript-eslint/no-unused-vars": [
       "error",
       { "varsIgnorePattern": "^_" }
-    ]
+    ],
+    "implicit-arrow-linebreak": "off"
   },
   "settings": {
     "import/resolver": {
