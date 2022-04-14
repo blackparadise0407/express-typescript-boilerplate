@@ -14,6 +14,7 @@
     "start:prod": "yarn build && yarn start",
     "start:dev": "yarn build:dev && yarn start",
     "dev": "nodemon",
+    "prepare": "husky install",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "dependencies": {
@@ -41,6 +42,7 @@
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-import-resolver-typescript": "^2.7.1",
     "eslint-plugin-import": "^2.26.0",
+    "husky": "^7.0.4",
     "nodemon": "^2.0.15",
     "rimraf": "^3.0.2",
     "shelljs": "^0.8.5",
