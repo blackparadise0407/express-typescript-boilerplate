@@ -68,7 +68,7 @@
             "protected-method",
             "private-method"
           ],
-          "order": "alphabetically"
+          "order": "as-written"
         }
       }
     ],
@@ -81,7 +81,20 @@
       "error",
       { "varsIgnorePattern": "^_" }
     ],
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "indent": "off",
+    "@typescript-eslint/indent": [
+      "error",
+      2,
+      {
+        "ignoredNodes": [
+          "FunctionExpression > .params[decorators.length > 0]",
+          "FunctionExpression > .params > :matches(Decorator, :not(:first-child))",
+          "ClassBody.body > PropertyDefinition[decorators.length > 0] > .key"
+        ],
+        "SwitchCase": 1 
+      }
+    ]
   },
   "settings": {
     "import/resolver": {
