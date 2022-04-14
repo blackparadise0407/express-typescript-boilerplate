@@ -1,4 +1,5 @@
 import 'module-alias/register';
+import 'reflect-metadata';
 
 import { json, RequestHandler, urlencoded } from 'express';
 import cors from 'cors';
@@ -31,5 +32,5 @@ Promise.resolve()
       app.loadControllers(controllers);
       app.handleError();
       app.run();
-    }
+    } else process.exit(1);
   });
