@@ -15,7 +15,6 @@
     "start:dev": "yarn build:dev && yarn start",
     "dev": "nodemon",
     "prepare": "husky install",
-    "prepublish": "concurrently \"yarn:lint\" \"yarn:prettify\" \"yarn:test\"",
     "test": "mocha -r ts-node-dev test/**/*.spec.ts"
   },
   "dependencies": {
