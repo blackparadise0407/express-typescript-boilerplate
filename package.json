@@ -7,6 +7,7 @@
     "clean": "rimraf dist/*",
     "lint": "eslint --ext .ts --fix src/",
     "tsc": "tsc",
+    "prettify": "prettier --ignore-unknown --write src/",
     "copy-assets": "ts-node-dev tools/copyAssets",
     "build": "concurrently \"yarn:clean\" \"yarn:lint\" \"yarn:tsc\" \"yarn:copy-assets\"",
     "build:dev": "concurrently \"yarn:clean\" \"yarn:tsc\" \"yarn:copy-assets\"",
@@ -15,6 +16,7 @@
     "start:dev": "yarn build:dev && yarn start",
     "dev": "nodemon",
     "prepare": "husky install",
+    "prepublish": "concurrently \"yarn:lint\" \"yarn:prettify\" \"yarn:test\"",
     "test": "mocha -r ts-node-dev test/**/*.spec.ts"
   },
   "dependencies": {
@@ -48,6 +50,7 @@
     "husky": "^7.0.4",
     "mocha": "^9.2.2",
     "nodemon": "^2.0.15",
+    "prettier": "^2.6.2",
     "rimraf": "^3.0.2",
     "shelljs": "^0.8.5",
     "ts-node-dev": "^1.1.8",
