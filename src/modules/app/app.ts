@@ -6,6 +6,7 @@ import {
   notFound,
 } from '@app/common/middlewares/error.middleware';
 import { Logger } from '@app/helpers/logger';
+import { AppDataSource } from './data-source';
 
 export default class App {
   public static isDev: boolean;
@@ -21,8 +22,15 @@ export default class App {
     App.isDev = process.env.NODE_ENV?.trim() === 'development';
   }
 
-  public establishDbConnection(): boolean {
-    return true;
+  public async establishDbConnection(): Promise<boolean> {
+    try {
+      await AppDataSource.initialize();
+      this.logger.log('Successfully established a connection to the database');
+      return true;
+    } catch (e: unknown) {
+      this.logger.error(e as string);
+      return false;
+    }
   }
 
   public handleError(): void {
