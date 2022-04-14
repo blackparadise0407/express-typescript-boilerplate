@@ -16,4 +16,9 @@ declare global {
     message: string;
     type: EError;
   }
+
+  interface IAdvancedResponse {
+    message?: string;
+    statusCode?: number;
+  }
 }
