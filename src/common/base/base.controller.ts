@@ -62,6 +62,7 @@ export default abstract class BaseController {
         message: `${location}[${param}] ${msg}`,
         type: EError.BAD_REQUEST,
       });
-    } else next();
+    }
+    next();
   }
 }
