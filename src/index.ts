@@ -20,7 +20,7 @@ const globalMiddleware: Array<RequestHandler> = [
   json(),
   cors({ credentials: true, origin: '*' }),
   helmet(),
-  morgan('dev'),
+  morgan(App.isDev ? 'dev' : 'common'),
 ];
 
 Promise.resolve()
