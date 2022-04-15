@@ -30,6 +30,7 @@ Promise.resolve()
     if (initSuccess) {
       app.loadMiddlewares(globalMiddleware);
       app.loadControllers(controllers);
+      app.initializeJobs();
       app.handleError();
       app.run();
     } else process.exit(1);

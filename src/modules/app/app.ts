@@ -6,6 +6,7 @@ import {
   notFound,
 } from '@app/common/middlewares/error.middleware';
 import { Logger } from '@app/helpers/logger';
+import { QueueFactory } from '@app/helpers/bull';
 import { AppDataSource } from './data-source';
 
 export default class App {
@@ -47,6 +48,12 @@ export default class App {
 
   public loadMiddlewares(middlewares: Array<RequestHandler> = []): void {
     middlewares.forEach((x) => this.server.use(x));
+  }
+
+  public initializeJobs(): void {
+    QueueFactory.emailQueue.process((job) => {
+      this.logger.log(JSON.stringify(job.data));
+    });
   }
 
   public run(): void {
